@@ -60,3 +60,17 @@ contract ECommerce {
         emit ProductPurchased(product.id, product.name, product.price, product.seller, msg.sender);
     }
 }
+
+
+pragma solidity ^0.8.0;
+
+contract transfer{
+    function checkBalance() public view returns(uint){
+        return address(this).balance;
+    }
+
+    function transferBal(address payable rec, uint amount) public payable returns(bool){
+        rec.transfer(amount);
+        return true;
+    }
+}
